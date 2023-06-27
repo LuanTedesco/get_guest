@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.5.0/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <div class="image-container mb-4">
+            <%= image_tag("sponsor_invite.jpg") %>
+          </div>
+          <div class="text-center">
+            <%= link_to 'Confirmar presença', guests_new_sponsor_presence_path, class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+      <div class="mapouter mt-4">
+        <div class="gmap_canvas">
+          <iframe width="770" height="510" id="gmap_canvas" src="https://maps.google.com/maps?q=joa%C3%A7aba&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+          <style>
+            .mapouter { position: relative; text-align: right; height: 510px; width: 770px; }
+          </style>
+          <style>
+            .gmap_canvas { overflow: hidden; background: none !important; height: 510px; width: 770px; }
+          </style>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.5.0/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
