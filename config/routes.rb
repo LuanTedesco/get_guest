@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root to: 'home#index'
   get 'guests/family_invite', to: 'guests#family_invite'
   get 'guests/guest_invite', to: 'guests#guest_invite'
   get 'guests/sponsor_invite', to: 'guests#sponsor_invite'
