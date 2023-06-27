@@ -1,6 +1,50 @@
 <% if user_signed_in? %>
-  <h1>Olá</h1>
-  <%= button_to "logout", destroy_user_session_path, method: :delete %>
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Todo Robot</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+      <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+      <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+      <%= yield :javascript %>
+    </head>
+    <body id="page-top">
+      <div id="wrapper">
+        <%= render 'sidebar'%>
+        <div id="content-wrapper" class="d-flex flex-column">
+          <div id="content">
+            <%= render 'topbar' %>
+            <div class="container-fluid">
+              <table class="table table-hover">
+                <thead>
+                  <th>Nome</th>
+                  <th>Tipo de Convite</th>
+                </thead>
+                <tbody>
+                  <% @guests.each do |guest| %>
+                    <tr>
+                      <td class="text-truncate" style="max-width: 300px;"><%= guest.name %></td>
+                      <td><%= guest.type_invite %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+              <%= yield %>
+            </div>
+          </div>
+          <%=render 'footer'%>
+        </div>
+      </div>
+      <%= turbo_frame_tag "bootstrap_modal" %>
+      <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+      </a>
+    </body>
+  </html>
 <% else %>
   <h1>Você não está logado</h1>
   <%= button_to "Login", new_user_session_path %>
