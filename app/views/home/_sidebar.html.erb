@@ -1,25 +1,54 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<%= defined?(sponsors_path) && user_signed_in? ? sponsors_path : '#' %>">
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<%= defined?(index_path) && user_signed_in? ? index_path : '#' %>">
     <div class="sidebar-brand-icon">
-      <i class="fas fa-user-shield"></i>
+      <i class="fas fa-user-lock"></i>
     </div>
-    <div class="sidebar-brand-text mx-2">Área restrita</div>
+    <div class="sidebar-brand-text mx-2">Área Restrita</div>
   </a>
   <hr class="sidebar-divider my-0">
   <% if user_signed_in? %>
-    <li class="nav-item active">
-      <%= link_to sponsors_path, class: "nav-link" do %>
-        <i class="fas fa-chart-line"></i>
-        <span>Dashboard</span>
-      <% end %>
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
+        aria-expanded="true" aria-controls="collapseOne">
+        <i class="fas fa-user"></i>
+        <span>Lista de Convidados</span>
+      </a>
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <%= link_to index_path, class: "collapse-item" do %>
+            <span>Todos</span>
+          <% end %>
+          <%= link_to family_invites_path, class: "collapse-item" do %>
+            <span>Familia</span>
+          <% end %>
+          <%= link_to sponsor_invites_path, class: "collapse-item" do %>
+            <span>Padrinho</span>
+          <% end %>
+          <%= link_to guest_invites_path, class: "collapse-item" do %>
+            <span>Convidado</span>
+          <% end %>
+        </div>
+      </div>
     </li>
     <hr class="sidebar-divider my-0">
     <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-        aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fas fa-user-check"></i>
-        <span>Padrinhos</span>
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fas fa-link"></i>
+        <span>Links</span>
       </a>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <%= link_to invite_family_path, class: "collapse-item" do %>
+            <span>Familia</span>
+          <% end %>
+          <%= link_to invite_sponsor_path, class: "collapse-item" do %>
+            <span>Padrinho</span>
+          <% end %>
+          <%= link_to invite_guest_path, class: "collapse-item" do %>
+            <span>Convidado</span>
+          <% end %>
+        </div>
+      </div>
     </li>
   <% end %>
 </ul>

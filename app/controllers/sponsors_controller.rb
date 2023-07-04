@@ -9,7 +9,7 @@ class SponsorsController < ApplicationController
 
     respond_to do |format|
       if @sponsor.save
-        format.html { redirect_to sponsors_path, notice: 'Sua presença foi confirmada!' }
+        format.html { redirect_to invite_sponsor_path, notice: 'Sua presença foi confirmada!' }
         format.json { render :show, status: :created, location: @sponsor }
       else
         format.html { render :new, status: :unprocessable_entity }

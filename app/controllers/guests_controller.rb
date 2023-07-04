@@ -9,7 +9,7 @@ class GuestsController < ApplicationController
 
     respond_to do |format|
       if @guest.save
-        format.html { redirect_to guests_path, notice: 'Sua presença foi confirmada!' }
+        format.html { redirect_to invite_guest_path, notice: 'Sua presença foi confirmada!' }
         format.json { render :show, status: :created, location: @guest }
       else
         format.html { render :new, status: :unprocessable_entity }

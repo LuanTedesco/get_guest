@@ -5,10 +5,11 @@ class FamiliesController < ApplicationController
 
   def create
     @family = Family.new(family_params)
+    @family.type_invite = 'Familia'
 
     respond_to do |format|
       if @family.save
-        format.html { redirect_to families_path, notice: 'Sua presença foi confirmada!' }
+        format.html { redirect_to invite_family_path, notice: 'Sua presença foi confirmada!' }
         format.json { render :show, status: :created, location: @family }
       else
         format.html { render :new, status: :unprocessable_entity }
