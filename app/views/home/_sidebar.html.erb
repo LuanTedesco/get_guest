@@ -1,5 +1,5 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<%= defined?(tasks_path) && user_signed_in? ? tasks_path : '#' %>">
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<%= defined?(sponsors_path) && user_signed_in? ? sponsors_path : '#' %>">
     <div class="sidebar-brand-icon">
       <i class="fas fa-user-shield"></i>
     </div>
@@ -7,19 +7,19 @@
   </a>
   <hr class="sidebar-divider my-0">
   <% if user_signed_in? %>
-    <!--    <li class="nav-item active">-->
-    <%#= link_to tasks_path, class: "nav-link" do %>
-      <!--        <i class="fas fa-chart-line"></i>
+    <li class="nav-item active">
+      <%= link_to sponsors_path, class: "nav-link" do %>
+        <i class="fas fa-chart-line"></i>
         <span>Dashboard</span>
-      <%# end %>-->
-      <!--    </li>-->
-      <hr class="sidebar-divider my-0">
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+      <% end %>
+    </li>
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-user-check"></i>
-          <span>Convidados</span>
-        </a>
-      </li>
-    <% end %>
-  </ul>
+        <i class="fas fa-user-check"></i>
+        <span>Padrinhos</span>
+      </a>
+    </li>
+  <% end %>
+</ul>
