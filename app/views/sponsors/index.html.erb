@@ -3,20 +3,74 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      .invite {
+        margin: 20px;
+        position: relative;
+      }
+
+      .invite-image-container {
+        text-align: center;
+      }
+
+      .invite-image {
+        max-width: 100%;
+        width: 300px; /* Defina o tamanho desejado para a imagem */
+        height: auto; /* Mantém a proporção da imagem */
+      }
+
+      .btn-container {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex; /* Dispor os botões em linha */
+        justify-content: center; /* Centralizar os botões horizontalmente */
+        align-items: center; /* Centralizar os botões verticalmente */
+      }
+
+      .btn-container a {
+        display: block;
+        width: 50px; /* Defina o tamanho desejado para os botões redondos */
+        height: 50px; /* Defina o tamanho desejado para os botões redondos */
+        border-radius: 50%; /* Transforma os botões em círculos */
+        background-color: transparent !important; /* Botões transparentes */
+        margin: 32px;
+        border: 2px solid #000; /* Adiciona uma borda de 2px sólida de cor preta aos botões */
+      }
+
+      @media (max-width: 767px) {
+        .invite-image {
+          max-width: 100%;
+          width: 100%; /* Ajusta a largura para ocupar toda a largura da tela */
+          height: auto; /* Mantém a proporção da imagem */
+        }
+
+        .btn-container {
+          position: static;
+          transform: none;
+          margin-top: 10px;
+          flex-direction: column; /* Dispor os botões em coluna em telas menores */
+          align-items: center; /* Centralizar os botões verticalmente em telas menores */
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="invite">
-      <div class="container">
+    <div class="container">
+      <div class="invite">
         <div class="row">
-          <div class="col-md-6 offset-md-3">
-            <div class="image-container mb-4">
-              <%= image_tag("sponsor_invite.webp") %>
-            </div>
-            <div class="text-center">
-              <%= link_to 'Confirmar presença', new_sponsor_path, "data-controller":"invite-modal", class: 'btn btn-primary' %>
-              <%= link_to 'Localização', "https://www.google.com/maps/place/Joa%C3%A7aba,+State+of+Santa+Catarina,+Brazil/@-27.174469,-51.505182,17z/data=!4m6!3m5!1s0x94e3faab3e246e29:0x76930ccaad948e2a!8m2!3d-27.1743773!4d-51.5054475!16zL20vMGM5MWR3?hl=en&entry=ttu", class: 'btn btn-primary' %>
+          <div class="col-sm-12">
+            <div class="invite-image-container mb-4">
+              <%= image_tag("sponsor_invite.webp", class: "invite-image") %>
+              <div class="btn-container">
+                <%= link_to '', new_sponsor_path, "data-controller":"invite-modal", class: 'btn btn-primary' %>
+                <%= link_to '', "https://www.google.com/maps/place/Joa%C3%A7aba,+State+of+Santa+Catarina,+Brazil/@-27.174469,-51.505182,17z/data=!4m6!3m5!1s0x94e3faab3e246e29:0x76930ccaad948e2a!8m2!3d-27.1743773!4d-51.5054475!16zL20vMGM5MWR3?hl=en&entry=ttu", class: 'btn btn-primary' %>
+              </div>
             </div>
           </div>
         </div>
-      </body>
-    </html>
+      </div>
+    </div>
+  </body>
+</html>
