@@ -1,4 +1,4 @@
-# Todo-Robot - Aplicação de Lista de Tarefas com Funcionalidades Avançadas
+# Todo-Robot - Aplicação de Lista de Tarefas
 
 Bem-vindo ao Todo-Robot, um aplicativo de lista de tarefas desenvolvido em Rails que permite criar tarefas e gerenciar projetos de forma eficiente e organizada. O Todo-Robot possui um conjunto de funcionalidades avançadas, incluindo a criação de robôs, status personalizáveis, prioridades de tarefas e filtros para pesquisa, além de um sistema de contas para login e sistema de tags.
 
